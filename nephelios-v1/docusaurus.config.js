@@ -10,20 +10,20 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Nephelios V1',
+  tagline: 'Nephelios PaaS Documentation',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://exemple.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'Nephelios', // Usually your GitHub org/user name.
+  projectName: 'v1-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -33,8 +33,14 @@ const config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'fr'],
   },
+
+  plugins:[
+      [ require.resolve('docusaurus-lunr-search'), {
+        languages: ['en', 'de', 'fr'] // language codes
+    }]
+  ],
 
   presets: [
     [
@@ -70,29 +76,39 @@ const config = {
     ],
   ],
 
+  themes: ['@docusaurus/theme-mermaid'],
+  // In order for Mermaid code blocks in Markdown to work,
+  // you also need to enable the Remark plugin with this option
+  markdown: {
+    mermaid: true,
+  },
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'Nephelios',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Nephelios Logo',
           src: 'img/logo.svg',
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'docsSideBar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/Nephelios',
             label: 'GitHub',
             position: 'right',
+          },
+          {
+            type: 'localeDropdown',
           },
         ],
       },
@@ -103,7 +119,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'What is Nephelios?',
                 to: '/docs/intro',
               },
             ],
@@ -112,16 +128,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                href: 'https://discord.gg/VJfrCZ5nrR',
               },
             ],
           },
@@ -134,12 +142,12 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/Nephelios',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Nephelios, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

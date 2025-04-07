@@ -1,23 +1,33 @@
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
+vilardell:
+  name: Joris Vilardell
+  title: DevOps Engineer
+  url: https://github.com/ZUHOWKS
+  image_url: https://github.com/ZUHOWKS.png
   page: true
   socials:
-    x: yangshunz
-    github: yangshun
+    linkedin: joris-vilardell-76050427b
+    github: ZUHOWKS
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
+mathieu:
+  name: Damien Mathieu
+  title: DevOps Engineer
+  url: https://damien-homepage.vercel.app/
+  image_url: https://github.com/damien-mathieu1.png
+ # page:
     # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
+  #  permalink: '/all-sebastien-lorber-articles'
   socials:
     x: sebastienlorber
     linkedin: sebastienlorber
-    github: slorber
+    github: damien-mathieu1
     newsletter: https://thisweekinreact.com
+
+paillard:
+  name: Evan Paillard
+  title: DevOps Engineer
+  url: https://github.com/Evan-Paillard
+  image_url: https://github.com/Evan-Paillard.png
+  page: true
+  socials:
+    linkedin: evan-paillard-406192304
+    github: Evan-Paillard
