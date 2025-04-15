@@ -44,9 +44,18 @@ Nephelios provides a quick and straightforward installation process. To get star
 1. **Ensure** [**Docker Engine**](https://docs.docker.com/engine/install/) **is installed**
 2. **Install Nephelios**
 
-   ```sh
-   cargo install nephelios
-   ```
+To begin using Nephelios, follow these steps:
+
+***Set up the core platform:***
+```bash
+git clone https://github.com/Nephelios/nephelios.git
+cd nephelios
+```
+
+***Run the docker compose:***
+```bash
+docker compose up
+```
 3. **Deploy your first application Using** the Nephelios Web Interface or Nephelios API.
 
 Nephelios makes deploying and managing applications as simple as possible, enabling you to focus on building great software rather than managing infrastructure.
