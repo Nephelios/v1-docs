@@ -6,13 +6,13 @@ sidebar_position: 2
 
 ## Getting Started
 
-To set up Nephelios, follow these steps to install both the back-end and front-end components.
+To begin using Nephelios, follow these steps:
 
 ### 1. Create a Working Directory
 
-Before proceeding, create a dedicated directory to house all Nephelios-related repositories:
+Create a dedicated directory to house all Nephelios-related repositories:
 
-```sh
+```bash
 mkdir nephelios && cd nephelios
 ```
 
@@ -22,78 +22,111 @@ mkdir nephelios && cd nephelios
 
 ### 2. Clone the Repository
 
-Clone the Nephelios back-end repository:
+Clone the Nephelios core platform:
 
-```sh
+```bash
 git clone https://github.com/Nephelios/nephelios.git
 cd nephelios
 ```
 
-### 3. Install Dependencies
+---
 
-Ensure you have Rust installed, then build the project:
+### 3. Run the Back-End with Docker
 
-```sh
-cargo build --release
-```
+Use Docker Compose to start the full back-end stack:
 
-### 4. Configure the Environment
-
-Copy the example environment file and **adjust configurations** as needed:
-
-```sh
-cp .env.example .env
-```
-
-### 5. Run the Agent
-
-Start the Nephelios agent:
-
-```sh
-cargo run --release
+```bash
+docker compose up
 ```
 
 ---
 
 ## Installing Nephelios Front-End
 
-### 6. Install Node.js
+### 4. Install Node.js and pnpm
 
-Ensure you have Node.js installed. You can download it from [Node.js Official Website](https://nodejs.org/) or install it via package managers:
+Ensure you have Node.js (v18 or higher) installed. You can download it from the [Node.js Official Website](https://nodejs.org/) or install it via a package manager:
 
-```sh
+```bash
 sudo apt install nodejs npm
 ```
 
-### 7. Clone the Front-End Repository
+Then install `pnpm` (recommended for better performance):
+
+```bash
+npm install -g pnpm
+```
+
+---
+
+### 5. Clone the Front-End Repository
 
 Clone the Nephelios front-end repository:
 
-```sh
+```bash
 cd ..  # Move back to the parent directory nephelios/
 
 git clone https://github.com/Nephelios/nephelios-front.git
 cd nephelios-front
 ```
 
-### 8. Install Dependencies
+---
 
-Run the following command to install necessary dependencies:
+### 6. Install Dependencies
 
-```sh
-npm install
-```
+Install the project dependencies using `pnpm`:
 
-### 9. Build and Run the Front-End
-
-To build and preview the application:
-
-```sh
-npm run build
-npm run preview
+```bash
+pnpm install
 ```
 
 ---
 
-Nephelios is now fully installed and running! 🎉
+### 7. Set Up Environment Variables
 
+Create a `.env` file in the root directory of the project with the following content:
+
+```env
+REACT_APP_NEPHELIOS_BACKEND_URL=http://localhost
+REACT_APP_NEPHELIOS_BACKEND_PORT=3030
+```
+
+---
+
+### 8. Start the Development Server
+
+To run the app in development mode:
+
+```bash
+pnpm dev
+```
+
+The application will be available at: [http://localhost:5173](http://localhost:5173)
+
+---
+
+### 9. Build for Production
+
+To build the application for production:
+
+```bash
+pnpm build
+```
+
+The built files will be located in the `dist` directory.
+
+---
+
+### 10. Docker Deployment
+
+Nephelios front-end can also be deployed using Docker:
+
+```bash
+# Build the Docker image
+docker build -t nephelios-frontend .
+
+# Run the container
+docker run -p 80:80 nephelios-frontend
+```
+
+This will serve the front-end on [http://localhost](http://localhost) via port 80.
