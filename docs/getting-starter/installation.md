@@ -126,7 +126,7 @@ Nephelios front-end can also be deployed using Docker:
 docker build -t nephelios-frontend .
 
 # Run the container
-docker run -p 4173:4173 --name nephelios-frontend zuhowks/nephelios-frontend:latest
+docker run -p 4173:4173 --name nephelios-frontend nephelios-frontend
 ```
 
 This will serve the front-end on [http://localhost:4173](http://localhost:4173).
