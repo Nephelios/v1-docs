@@ -1,10 +1,10 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Nephelios Installation Guide
+# Nephelios Manual Installation
 
-## Getting Started
+## 🕹️ Getting Started
 
 To begin using Nephelios, follow these steps:
 
@@ -18,7 +18,7 @@ mkdir nephelios && cd nephelios
 
 ---
 
-## Installing Nephelios (Back-End)
+## 📦 Installing Nephelios (Back-End)
 
 ### 2. Clone the Repository
 
@@ -41,7 +41,7 @@ docker compose up
 
 ---
 
-## Installing Nephelios Front-End
+## 📦 Installing Nephelios Front-End
 
 ### 4. Install Node.js and pnpm
 
@@ -126,7 +126,7 @@ Nephelios front-end can also be deployed using Docker:
 docker build -t nephelios-frontend .
 
 # Run the container
-docker run -p 80:80 nephelios-frontend
+docker run -p 4173:4173 --name nephelios-frontend zuhowks/nephelios-frontend:latest
 ```
 
-This will serve the front-end on [http://localhost](http://localhost) via port 80.
+This will serve the front-end on [http://localhost:4173](http://localhost:4173).

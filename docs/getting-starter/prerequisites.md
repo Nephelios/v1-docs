@@ -4,19 +4,19 @@ sidebar_position: 1
 
 # Prerequisites for Installing Nephelios
 
-## Compatibility and Environment
+## 🌳 Compatibility and Environment
 
-Nephelios has been developed using **Rust 1.84.1** and has been tested on **Debian** and **Ubuntu** distributions. While it may function on other Linux environments, official support and stability are ensured on these platforms. It is strongly recommended to use a **64-bit Linux system** to guarantee full compatibility.
+Nephelios has been developed using **Rust 1.86.0** and has been tested on **Debian** and **Ubuntu** distributions. While it may function on other Linux environments, official support and stability are ensured on these platforms. It is strongly recommended to use a **64-bit Linux system** to guarantee full compatibility.
 
-## System Requirements
+## 🚨 System Requirements
 
 Before proceeding with the installation of Nephelios, ensure that your system meets the following prerequisites:
 
 1. **Operating System**: A 64-bit version of **Debian** or **Ubuntu**.
-2. **Rust Environment**: Ensure that **Rust 1.84.1** or later is installed.
+2. **Rust Environment**: Ensure that **Rust 1.86.0** or later is installed.
 3. **Docker Engine**: Nephelios relies on Docker Engine for containerization.
 
-## Windows Users: Running Nephelios with WSL
+## 🪟 Windows Users: Running Nephelios with WSL
 
 If you are using Windows, you can leverage **Windows Subsystem for Linux (WSL)** to create a compatible Linux environment for Nephelios. We recommend installing **WSL 2** with an Ubuntu distribution.
 
@@ -24,17 +24,22 @@ If you are using Windows, you can leverage **Windows Subsystem for Linux (WSL)**
 
 1. **Enable WSL**:
    Open PowerShell as Administrator and run:
+
    ```powershell
    wsl --install
    ```
+
    This will install WSL and set up Ubuntu as the default distribution.
 
 2. **Check WSL Version**:
    Ensure that WSL 2 is enabled by running:
+
    ```powershell
    wsl --list --verbose
    ```
+
    If your distribution is set to WSL 1, you can upgrade it to WSL 2 with:
+
    ```powershell
    wsl --set-version Ubuntu 2
    ```
@@ -51,7 +56,7 @@ If you are using Windows, you can leverage **Windows Subsystem for Linux (WSL)**
 
 For more details on WSL, refer to the [official Microsoft documentation](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-## Installing Rust
+## 🦀 Installing Rust
 
 To install Rust on your system, follow these steps:
 
@@ -79,11 +84,11 @@ To install Rust on your system, follow these steps:
    rustc --version
    ```
 
-   This should output the installed Rust version (e.g., `rustc 1.84.1`).
+   This should output the installed Rust version (e.g., `rustc 1.86.0`).
 
 For additional installation options, refer to the official Rust documentation: [Rust Installation Guide](https://www.rust-lang.org/tools/install).
 
-## Installing Docker Engine
+## 🐳 Installing Docker Engine
 
 :::danger[Take care]
 
@@ -103,68 +108,73 @@ To set up Docker Engine on Ubuntu, perform the following steps:
 
 2. **Set Up Docker's APT Repository**:
 
-    - Add Docker's official GPG key:
+   - Add Docker's official GPG key:
 
-      ```bash
-      sudo mkdir -p /etc/apt/keyrings
-      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.asc
-      ```
+     ```bash
+     sudo mkdir -p /etc/apt/keyrings
+     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.asc
+     ```
 
-    - Add the Docker repository to APT sources:
+   - Add the Docker repository to APT sources:
 
-      ```bash
-      echo \
-        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-        $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
-        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-      ```
+     ```bash
+     echo \
+       "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+       $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+       sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+     ```
 
-    - Update the package index:
+   - Update the package index:
 
-      ```bash
-      sudo apt-get update
-      ```
+     ```bash
+     sudo apt-get update
+     ```
 
 3. **Install Docker Packages**:
 
-    - Install the latest version of Docker Engine and associated components:
-      ```bash
-      sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-      ```
+   - Install the latest version of Docker Engine and associated components:
+     ```bash
+     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+     ```
 
 4. **Verify Installation**:
 
-    - Run the following command to ensure Docker is installed correctly:
-      ```bash
-      sudo docker run hello-world
-      ```
-      This command downloads and runs a test container, which prints a confirmation message upon successful execution.
+   - Run the following command to ensure Docker is installed correctly:
+     ```bash
+     sudo docker run hello-world
+     ```
+     This command downloads and runs a test container, which prints a confirmation message upon successful execution.
 
 ### Debian
 
 For Debian, the installation steps are similar but require slight modifications:
 
 1. **Uninstall Conflicting Packages**:
+
    ```bash
    sudo apt-get remove docker.io docker-doc docker-compose podman-docker containerd runc
    ```
 
 2. **Set Up Docker’s APT Repository**:
+
    ```bash
    sudo mkdir -p /etc/apt/keyrings
    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.asc
    ```
+
    ```bash
    echo \
      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
      $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
    ```
+
    ```bash
    sudo apt-get update
    ```
 
 3. **Install Docker Packages**:
+
    ```bash
    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
    ```
@@ -175,4 +185,3 @@ For Debian, the installation steps are similar but require slight modifications:
    ```
 
 Ensuring that your system meets these prerequisites will facilitate a smooth installation and operation of Nephelios.
-
